@@ -1,0 +1,33 @@
+.card {
+  color: white;
+  background-color: #7675776b;
+  display: flex;
+  max-width: 35%;
+  max-height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgb(14, 237, 25);
+  text-align: center;
+  font-family: monospace;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+  .card_image {
+    width: 50%;
+    height: auto;
+  }
+
+  .card_description {
+    padding: 0 8px 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+
