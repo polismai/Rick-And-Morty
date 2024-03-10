@@ -5,7 +5,7 @@ const About = () => {
         <div className={style.about_container}>
         <h2 className={style.about_title}>Sobre mí</h2>
         <div className={style.about_description}>
-        <p>¡Hola! Soy Maia Polischuck. Me encanta programar y crear aplicaciones web.</p>
+        <p>¡Hola! Soy Maia Polischuck. Estoy aprendiendo a programar y crear aplicaciones web.</p>
         <p>Puedes encontrarme en:</p>
         </div>
         <ul className={style.about_links}>

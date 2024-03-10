@@ -20,6 +20,7 @@
     width: 90%;
     border-radius: 50%;
     transition: transform 0.3s ease;
+    margin-bottom: 8px;
   }
 
   .card_button {
@@ -45,14 +46,21 @@
   
   .nombre {
     background-color: white;
-    margin: 25px 8px 15px 8px;
+    margin: 30px 8px 15px 8px;
     padding: 5px 10px 5px 10px;
     font-family: monospace;
     box-shadow: 0 3px 3px rgb(80, 80, 80);
     border-radius: 8px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    display: block; 
   }
 
-  
-
+  .nombre:hover {
+    overflow: visible; 
+    white-space: normal; 
+    width: auto; 
+  }
 
   
