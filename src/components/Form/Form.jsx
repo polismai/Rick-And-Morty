@@ -3,7 +3,7 @@ import { useState } from 'react';
 import validation from './Validation';
 import logo from '../../images/r_and_m.png'
 
-const Form = ({login}) => {
+const Form = ({ login }) => {
 
     const [interacted, setInteracted] = useState({
         email: false,
@@ -20,6 +20,8 @@ const Form = ({login}) => {
         password: [],
     });
 
+    const [errorMessage, setErrorMessage] = useState("");
+
     const handleChange = (event) => {
         const property = event.target.name;
         const value = event.target.value;
@@ -34,8 +36,12 @@ const Form = ({login}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        login(userData);
-    }
+        if (login(userData)) {
+            setErrorMessage("");
+        } else {
+            setErrorMessage("Usuario no registrado");
+        }
+    };
 
     const [shown, setShown] = useState(false);
     const switchShown = () => setShown(!shown);
@@ -45,6 +51,7 @@ const Form = ({login}) => {
           <img src={logo} className={style.logo} />
          <form className={style.form} onSubmit={handleSubmit}>
             <div className={style.container}>
+                {errorMessage && <p className={style.errorMessage}>{errorMessage}</p>}
                 <div className={style.input}>
                     <label htmlFor='email'>Email</label>
                     <div>
@@ -65,8 +72,9 @@ const Form = ({login}) => {
                 type='submit'  
                 className={style.submit} 
                 disabled={errors.email.length || errors.password.length || userData.email === "" || userData.password === ""}
-            >Submit</button>
-        </form> 
+                >Submit
+            </button>
+         </form> 
         </div>
     )
 }
