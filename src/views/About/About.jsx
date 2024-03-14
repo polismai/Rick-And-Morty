@@ -1,25 +1,27 @@
+import Card from '../../components/Card/Card';
 import style from './About.module.css';
+import maiaImg from '../../images/maiaImg.jpg';
+
 
 const About = () => {
-    return(
-        <div className={style.about_container}>
-        <h2 className={style.about_title}>Sobre mí</h2>
-        <div className={style.about_description}>
-        <p>¡Hola! Soy Maia Polischuck. Estoy aprendiendo a programar y crear aplicaciones web.</p>
-        <p>Puedes encontrarme en:</p>
-        </div>
-        <ul className={style.about_links}>
+    const {id, name, status, species, gender, origin, image, onClose} = {
+        id: 'maia',
+        name: "Maia Polischuck",
+        status: "Alive",
+        species: "Human",
+        gender: "Female",
+        origin: "Earth",
+        image: maiaImg,
+        onClose: (id) => {
+            console.log(id)
+        }
+    }
 
-          <span>
-            <li>GitHub: <a className={style.about_link} href="https://github.com/tu-usuario">tu-usuario</a></li>
-            <li>LinkedIn: <a className={style.about_link} href="https://www.linkedin.com/in/tu-perfil">tu-perfil</a></li>
-          </span>
-          
-        </ul>
-        <img className={style.about_image} src="tu-imagen.jpg" alt="Tu foto" />
-      </div>
+    return (
+        <div className={style.card_container}>
+            <Card key={id} id={id} name={name} status={status} species={species} gender={gender} origin={origin} image={image} onClose={onClose} />
+        </div>
     );
 }
 
 export default About;
-

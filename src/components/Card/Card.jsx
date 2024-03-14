@@ -1,11 +1,14 @@
 import style from './Card.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { addFav, removeFav } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 import store from '../../redux/store';
 
-function Card({ id, name, status, species, gender, origin, image, onClose, isFaved, myFavorites }) {
+function Card({ id, name, status, species, gender, origin, image, onClose, myFavorites }) {
+
+   const location = useLocation();
+   const isHomePage = location.pathname === '/home';
    
    const [isFav, setIsFav] = useState(false);
 
@@ -29,7 +32,7 @@ function Card({ id, name, status, species, gender, origin, image, onClose, isFav
      
    return (
       <div className={style.card}>
-         {!isFaved && (
+         {isHomePage && (
             <>
                { isFav ? (
                   <button className={style.favoriteButton} onClick={handleFavorite}>❤️</button>
@@ -38,7 +41,7 @@ function Card({ id, name, status, species, gender, origin, image, onClose, isFav
                )}
             </>
          )}
-         {!isFaved && <button className={style.card_button} onClick={() => onClose(id)}>X</button>}
+         {isHomePage && <button className={style.card_button} onClick={() => onClose(id)}>X</button>}
          <h2 className={style.nombre}>{name}</h2>
          <Link to={`/detail/${id}`}>
             <img src={image} alt={name} /> 

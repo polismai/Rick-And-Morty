@@ -14,9 +14,10 @@
     border-radius: 5px; 
     margin-left: 8px; 
     cursor: pointer; 
+    transition: 0.2s;
     
   }
   
   .nav button:hover {
-    background-color: #ee5555; 
-}
+    background-color: #79bf37dc; 
+  }

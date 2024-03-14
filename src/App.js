@@ -3,8 +3,9 @@ import Cards from './components/Cards/Cards';
 import Nav from '../src/components/Nav/Nav';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import About from './views/About/About';
+import AboutDetail from './views/AboutDetail/AboutDetail';
 import Detail from './views/Detail/Detail';
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
@@ -12,6 +13,13 @@ import Favorites from './components/Favorites/Favorites';
 
 
 function App() {
+   const { pathname } = useLocation();
+   if (pathname === '/') {
+      document.body.className = "formBack";
+   }
+   if (pathname !== '/') {
+      document.body.className = "allBack";
+   }
    const [characters, setCharacters] = useState([]);
    
    const onSearch = (id) => {
@@ -65,6 +73,7 @@ function App() {
             <Route path='/' element={<Form login={login}/>}></Route>
             <Route path='/home' element={<Cards characters={characters} onClose={onClose}/> } />
             <Route path='/about' element={<About />}></Route>
+            <Route path='/detail/maia' element={<AboutDetail />}></Route>
             <Route path='/detail/:id' element={<Detail />}></Route>
             <Route path='/favorites' element={<Favorites />}></Route>
          </Routes>

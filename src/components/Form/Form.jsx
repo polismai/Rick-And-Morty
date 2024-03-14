@@ -1,7 +1,8 @@
 import style from './Form.module.css';
 import { useState } from 'react';
 import validation from './Validation';
-import logo from '../../images/r_and_m.png'
+import logo from '../../images/r_and_m.png';
+
 
 const Form = ({ login }) => {
 

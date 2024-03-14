@@ -1,52 +1,7 @@
-.about_container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  color: white;
-  
- 
-}
-
-.about_title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.card_container {
     display: flex;
-    justify-content: center;
-   
-}
+    justify-content: space-around;
+    flex-wrap: wrap; 
+    padding: 20px;
+  }
 
-.about_description {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .about_links {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  .about_links li {
-    margin-bottom: 5px;
-  }
-  
-  .about_links span {
-    font-weight: bold;
-    margin-right: 5px;
-  }
-  
-  .about_link {
-    text-decoration: none;
-    color: violet;
-  }
-  
-  .about_link:hover {
-    text-decoration: underline;
-  }
-  
-  .about_image {
-    max-width: 100%;
-    display: block;
-    margin-top: 20px;
-    color: white;
-  }

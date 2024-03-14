@@ -1,0 +1,91 @@
+.card {
+  color: white;
+  background-color: #7675776b;
+  display: flex;
+  max-height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgb(14, 237, 25);
+  text-align: center;
+  font-family: monospace;
+  overflow: hidden;
+  margin: 20px;
+  }
+
+  .card_image {
+    width: 50%;
+    height: auto;
+  }
+
+  .card_description {
+    padding: 0 8px 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card_description h2 {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgb(14, 237, 25);
+  }
+
+  .card_description p {
+    font-size: 18px;
+  }
+
+  .aboutContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 2000px;
+    margin: 30px;
+  }
+  
+  .aboutText {
+    flex: 1;
+    padding-left: 20px;
+    color: white;
+  }
+  
+  .aboutText blockquote {
+    font-style: italic;
+    color: white;
+    background-color: #aba1aa53;
+    border: 4px solid #aba1aad5;
+    border-radius: 5px;
+    padding: 0 20px 0 20px;
+  }
+  
+  .aboutText p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: white
+  }
+  
+  .aboutText ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .aboutText ul li {
+    margin-bottom: 10px;
+  }
+  
+  .aboutText ul li a {
+    color: rgb(14, 237, 25);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .aboutText ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .maiaImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }

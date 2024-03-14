@@ -1,7 +1,15 @@
-body {
-   background-image: url(./components/5532919.jpg);
+.allBack {
+   background-image: url(./images/5532919.jpg);
    background-size: auto;
    background-position: center;
    background-repeat: no-repeat;
+   background-attachment: fixed;
 }
 
+.formBack {
+   background-image: url(./images/fondo\ de\ rick\ and\ morty-formulario.jpeg);
+   background-size: auto;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
