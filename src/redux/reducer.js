@@ -29,7 +29,7 @@ const rootReducer = (state = initialState, action) => {
                 return { ...state, myFavorites: filteredCharacters };
             };
         case ORDER:
-            const sortedCharacters = [...state.allCharacters];
+            const sortedCharacters = [...state.myFavorites];
             if (action.payload === 'A') {
                 sortedCharacters.sort((a, b) => a.id - b.id); 
             } else if (action.payload === 'D') {
