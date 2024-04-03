@@ -1,6 +1,6 @@
 import './App.css';
 import Cards from './components/Cards/Cards';
-import Nav from '../src/components/Nav/Nav';
+import Nav from './components/Nav/Nav';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
@@ -23,7 +23,7 @@ function App() {
    const [characters, setCharacters] = useState([]);
    
    const onSearch = (id) => {
-      axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-{polismai}`).then(
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
       ({ data }) => {
          if (data.name) {
             const existe = characters.find(character => parseInt(character.id) === parseInt(id))

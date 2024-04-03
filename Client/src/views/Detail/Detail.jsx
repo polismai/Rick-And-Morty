@@ -9,7 +9,7 @@ const Detail = () => {
     const { id } = useParams();
     const [character, setCharacter]  = useState({});
     useEffect(() => {
-        axios(`https://rym2.up.railway.app/api/character/${id}?key={pi-polismai}`).then(
+        axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
            ({ data }) => {
               if (data.name) {
                  setCharacter(data);
