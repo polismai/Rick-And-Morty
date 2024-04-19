@@ -10,8 +10,6 @@ import Detail from './views/Detail/Detail';
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
 
-
-
 function App() {
    const { pathname } = useLocation();
    if (pathname === '/') {
@@ -22,38 +20,57 @@ function App() {
    }
    const [characters, setCharacters] = useState([]);
    
-   const onSearch = (id) => {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-         if (data.name) {
-            const existe = characters.find(character => parseInt(character.id) === parseInt(id))
-            if (!existe) {
-               setCharacters((oldChars) => [...oldChars, data])
-            }
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }
+   // const onSearch = async (id) => {
+   //    try {
+   //       const response = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+   //       const { data } = response;
+      
+   //       if (data.name) {
+   //          const existe = characters.find(character => parseInt(character.id) === parseInt(id))
+   //          if (!existe) {
+   //             setCharacters((oldChars) => [...oldChars, data])
+   //          }
+   //       } else {
+   //          window.alert('¡No hay personajes con este ID!');
+   //       }
+   //    } catch (error) {
+   //       console.error('Error al realizar la búsqueda:', error);
+   //    }  
+   // };
+
+   const onSearch = async (id) => {
+      try {
+         const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+
+         setCharacters((oldChars) => [...oldChars, data]);
+      } catch (error) {
+         window.alert('¡No hay personajes con este ID!');
       }
-   );
-   }
+   };
+
 
    const onClose = (id) => {
       const nuevaLista = characters.filter ((character)=> parseInt(character.id) !== parseInt(id))
       setCharacters(nuevaLista)
-   }
+   };
 
    const [access, setAccess] = useState(false);
    const navigate = useNavigate();
-   const EMAIL = 'polismai@gmail.com'
-   const PASSWORD = 'asd123'
 
-   function login(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
+   const login = async (userData) => {
+      try {
+         const { email, password } = userData;
+         const URL = 'http://localhost:3001/rickandmorty/login/';
+         const response = await axios(URL + `?email=${email}&password=${password}`);
+         const { data } = response;
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      } catch (error) {
+         console.error('Error en el inicio de sesión:', error);
       }
-   }
-
+   };
+      
    useEffect(() => {
       !access && navigate('/');
    }, [access]);

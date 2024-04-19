@@ -56,14 +56,14 @@ const Form = ({ login }) => {
                 <div className={style.input}>
                     <label htmlFor='email'>Email</label>
                     <div>
-                        <input className={errors.email.length ? style.error : (interacted.email && style.success)} type='text' name='email' onChange={handleChange} />
+                        <input className={errors.email.length ? style.error : (interacted.email ? style.success : undefined)} type='text' name='email' onChange={handleChange} />
                         <span className={style.errorSpan}>{errors.email.map((error, i) => <p key={i}>{error}</p>)}</span>
                     </div>
                 </div>
                 <div className={style.input}>
                     <label htmlFor= 'password'>Password</label>
                     <div>
-                        <input className={errors.password.length ? style.error : (interacted.password && style.success)} type={shown ? 'text' : 'password'} name='password' onChange={handleChange}/>
+                        <input className={errors.password.length ? style.error : (interacted.password ? style.success : null)} type={shown ? 'text' : 'password'} name='password' onChange={handleChange}/>
                         <button type="button" className={style.boton} onClick={switchShown}>{shown ? 'Ocultar' : 'Mostrar'}</button>
                         <span className={style.errorSpan}>{errors.password.map((error, i) => <p key={i}>{error}</p>)}</span>
                     </div>
