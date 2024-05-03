@@ -19,6 +19,7 @@ function App() {
       document.body.className = "allBack";
    }
    const [characters, setCharacters] = useState([]);
+   const [serverLoginError, setServerLoginError] = useState(false);
    
    // const onSearch = async (id) => {
    //    try {
@@ -59,6 +60,7 @@ function App() {
 
    const login = async (userData) => {
       try {
+         setServerLoginError(false);
          const { email, password } = userData;
          const URL = 'http://localhost:3001/rickandmorty/login/';
          const response = await axios(URL + `?email=${email}&password=${password}`);
@@ -67,6 +69,7 @@ function App() {
          setAccess(data);
          access && navigate('/home');
       } catch (error) {
+         setServerLoginError(true);
          console.error('Error en el inicio de sesión:', error);
       }
    };
@@ -87,7 +90,7 @@ function App() {
       <div className='App'>
          <Nav onSearch={onSearch} logout={logout}/>
          <Routes>
-            <Route path='/' element={<Form login={login}/>}></Route>
+            <Route path='/' element={<Form login={login} serverLoginError={serverLoginError} />}></Route>
             <Route path='/home' element={<Cards characters={characters} onClose={onClose}/> } />
             <Route path='/about' element={<About />}></Route>
             <Route path='/detail/maia' element={<AboutDetail />}></Route>

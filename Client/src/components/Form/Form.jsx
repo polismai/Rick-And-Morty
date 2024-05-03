@@ -4,7 +4,7 @@ import validation from './Validation';
 import logo from '../../images/r_and_m.png';
 
 
-const Form = ({ login }) => {
+const Form = ({ login, serverLoginError }) => {
 
     const [interacted, setInteracted] = useState({
         email: false,
@@ -61,7 +61,7 @@ const Form = ({ login }) => {
                     </div>
                 </div>
                 <div className={style.input}>
-                    <label htmlFor= 'password'>Password</label>
+                    <label htmlFor= 'password'>Contraseña</label>
                     <div>
                         <input className={errors.password.length ? style.error : (interacted.password ? style.success : null)} type={shown ? 'text' : 'password'} name='password' onChange={handleChange}/>
                         <button type="button" className={style.boton} onClick={switchShown}>{shown ? 'Ocultar' : 'Mostrar'}</button>
@@ -69,11 +69,12 @@ const Form = ({ login }) => {
                     </div>
                 </div>
             </div>
+            {serverLoginError && <span className={style.errorSpan} style={{textAlign: "center"}}>Error de login, por favor, verifique sus datos</span>}
             <button 
                 type='submit'  
                 className={style.submit} 
                 disabled={errors.email.length || errors.password.length || userData.email === "" || userData.password === ""}
-                >Submit
+                >Enviar
             </button>
          </form> 
         </div>
