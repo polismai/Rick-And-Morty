@@ -1,7 +1,5 @@
 # Proyecto personal cliente-servidor de Rick and Morty
 
-Foobar is a Python library for dealing with word pluralization.
-
 ## Servidor
 
 Posicionarse sobre la carpeta /Server y correr los siguientes comandos:
